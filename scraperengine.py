@@ -1,8 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
+from urllib.parse import urljoin
 
 class StartupScraper:
     def __init__(self, base_url):
+        self.base_url = base_url
         self.headers = {'User-Agent': 'Mozilla/5.0'}
 
     def fetch_page(self, url):
@@ -22,3 +24,10 @@ class StartupScraper:
             if title_element:
                 results.append({'Title': title_element.text.strip()})
         return results
+
+    def get_next_page(self, soup, current_url):
+        next_button = soup.find('li', class_='next')
+        if next_button and next_button.find('a'):
+            next_link = next_button.find('a')['href']
+            return urljoin(current_url, next_link)
+        return None
