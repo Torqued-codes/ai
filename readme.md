@@ -44,3 +44,6 @@ This project demonstrates key engineering competencies required for AI/ML roles:
 - Modular Engineering: Writing maintainable, clean code that treats data collection and data transformation as distinct, scalable services.
 
 - Process Automation: Transforming a manual task into a fully automated, hands-off pipeline.
+
+  # THANK YOU
+  
